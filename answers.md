@@ -77,3 +77,20 @@ Text C Text D
 ----------
 
 # Câu A4 — Table: (Tài liệu: 05_tables_hyperlinks.md)
+
+ ## 1. Sự khác nhau giữa `<thead>`, `<tbody>`, `<tfoot>`
+ + `<thead>`: Phần đầu bảng, chứa tiêu đề cột.
+ + `<tbody>`: Phần thân bảng, chứa dữ liệu chính.
+ + `<tfoot>`: Phần chân bảng, chứa tổng kết(tổng cộng, ghi chú).
+
+ ## 2. Lý do không nên dùng `<table>` để tạo layout trang web:
+* **Sai mục đích**: Table sinh ra để hiển thị dữ liệu dạng hàng/cột, không phải để dàn trang.
+* **Khó Responsive**: Table có cấu trúc khung cứng nhắc, không thể linh hoạt trên điện thoại như CSS Grid hay Flexbox.
+* **Code rối & Khó bảo trì**: Lồng nhiều lớp  `<tr>`, `<td>` khiến mã nguồn cồng kềnh, khó đọc và tốn nhiều thời gian khi muốn thay đổi giao diện.
+* **Tốc độ tải chậm**: Trình duyệt phải tính toán toàn bộ kích thước của các ô trong bảng rồi mới hiển thị, gây trễ trải nghiệm người dùng.
+
+----------
+
+## PHẦN B - THỰC HÀNH CODE:
+
+# Câu B3:
