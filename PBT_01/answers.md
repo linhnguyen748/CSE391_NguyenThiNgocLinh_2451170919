@@ -96,29 +96,17 @@ Text C Text D
 # Câu B3 — Debug HTML:
 * Danh sách các lỗi trong bài:
 - Lỗi 1: Dòng 1 — `<!DOCTYPE>` thiếu html — Cách sửa: Đổi thành `<!DOCTYPE html>`.
-
 - Lỗi 2: Dòng 2 — Thẻ `<html>` thiếu thuộc tính ngôn ngữ — Cách sửa: Thêm `lang="vi"`.
-
 - Lỗi 3: Dòng 4 — Thẻ `<title>` chưa đóng — Cách sửa: Thêm `</title>`.
-
 - Lỗi 4: Dòng 5 — Thuộc tính charset viết sai định dạng `(utf8)` — Cách sửa: Sửa thành `"UTF-8"`.
-
 - Lỗi 5: Dòng 5 — Thiếu thẻ `<meta name="viewport">` — Cách sửa: Thêm thẻ viewport để hỗ trợ hiển thị trên mobile.
-
 - Lỗi 6: Dòng 8 — Thẻ `<h1>` đóng sai bằng `<h1>` — Cách sửa: Đổi thành `</h1>`.
-
 - Lỗi 7: Dòng 12 — Thẻ `<a>` đóng sai bằng `<a>` — Cách sửa: Đổi thành `</a>`.
-
 - Lỗi 8: Dòng 12 — — Thẻ `<a>` đầu tiên đóng sai cú pháp — Cách sửa:`</a>`.
-
 - Lỗi 9: Dòng 21 — Thẻ `<img>` thiếu dấu ngoặc kép cho src và thiếu thuộc tính alt — Cách sửa: Thêm `src="iphone.jpg"` và `alt="iPhone 16 Pro"`.
-
 - Lỗi 10: Dòng 23 — Sai thứ tự đóng thẻ `<b>` mở sau `<p>` nhưng lại đóng sau `<p>`  — Cách sửa: Sửa thành `<b>...</b></p>`.
-
 - Lỗi 11: Dòng 28-37 - `<table>` thiếu cấu trúc `<thead>` và `<tbody>` — Cách sửa: Bổ sung các thẻ phân đoạn bảng.
-
 - Lỗi 12: Dòng 41 — Sử dụng hai thẻ `<main>` trên cùng một trang (sai chuẩn HTML5) — Cách sửa: `<main>` thứ hai thành `<aside>`.
-
 - Lỗi 13: Dòng 42 — Thẻ `<footer>` chưa đóng — Cách sửa: Thêm `</footer>`.
 
 ----------
