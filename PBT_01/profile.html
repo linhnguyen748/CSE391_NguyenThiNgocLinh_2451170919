@@ -11,40 +11,47 @@
         <h1>Hồ Sơ Trực Tuyến</h1>
         <nav aria-label="Menu chính">
             <ul>
+                <!-- Liên kết nội bộ dùng #id để cuộn trang -->
                 <li><a href="#gioithieu">Giới thiệu</a></li>
-                <li><a href="#kynang">Kỹ năng</a></li>
-                <li><a href="#lienhe">Liên hệ</a></li>
+                <li><a href="#ky-nang">Kỹ năng</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="">
+        <!-- Section Về tôi: Sử dụng đúng thẻ article và figure -->
+        <section id="gioithieu">
             <h2>Giới thiệu bản thân</h2>
             <article>
                 <figure>
-                    <img src="screenshots/avatar/anhchandung.jpg" alt="Ảnh đại diện">
-                    <figcaption>Nguyễn Thị Ngọc Linh - 66KTPM2 </figcaption>
+                    <!-- Sử dụng ảnh placeholder 200x200 đúng ý bạn -->
+                    <img src="https://via.placeholder.com/200" 
+                         alt="Ảnh chân dung Nguyễn Thị Ngọc Linh" 
+                         width="200" 
+                         height="200">
+                    <figcaption>Nguyễn Thị Ngọc Linh - Lớp 66KTPM2</figcaption>
                 </figure>
-                <p>Xin chào!Tôi là sinh viên năm 2 đang theo học KTPM của TLU. Tôi đam mê xây dựng phần mềm và hy vọng sẽ tạo ra những phần mềm có ích cho xã hội.</p>
+                <p>Xin chào! Tôi là sinh viên năm 2 đang theo học ngành Kỹ thuật Phần mềm tại TLU. Tôi đam mê xây dựng phần mềm và hy vọng sẽ tạo ra những ứng dụng có ích cho xã hội.</p>
             </article>
         </section>
 
+        <!-- Section Kỹ năng: Bảng đầy đủ thead, tbody, tfoot -->
         <section id="ky-nang">
             <h2>Bảng kỹ năng chuyên môn</h2>
-            <table>
+            <table border="1">
                 <thead>
                     <tr>
-                        <th scope="col">Skills</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Note</th>
+                        <th scope="col">Kỹ năng</th>
+                        <th scope="col">Mức độ</th>
+                        <th scope="col">Ghi chú</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>HTML</td>
                         <td>⭐⭐</td>
-                        <td>Đang học</td>
+                        <td>Đang học chuyên sâu</td>
                     </tr>
                     <tr>
                         <td>CSS</td>
@@ -59,12 +66,12 @@
                     <tr>
                         <td>Git/GitHub</td>
                         <td>⭐⭐</td>
-                        <td>Biết quản lý source code</td>
+                        <td>Biết quản lý source code cơ bản</td>
                     </tr>
                     <tr>
                         <td>Tiếng Anh</td>
                         <td>⭐⭐⭐</td>
-                        <td>Đọc được các tài liệu cơ bản</td>
+                        <td>Đang học tập trung ngữ pháp và đọc hiểu</td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -77,11 +84,12 @@
         </section>
     </main>
 
+    <!-- Thẻ aside chứa thông tin liên hệ bổ trợ -->
     <aside id="lien-he">
         <h3>Thông tin liên hệ</h3>
         <ul>
-            <li>Email: <a href="mail">nguyenlinh170406@gmail.com</a></li>
-            <li>Điện thoại: <a href="tel:+84988 405 943">0988 405 943</a></li>
+            <li>Email: <a href="mail:nguyenlinh170406@gmail.com">nguyenlinh170406@gmail.com</a></li>
+            <li>Điện thoại: <a href="sdt:+84988405943">0988 405 943</a></li>
         </ul>
     </aside>
 

@@ -1,4 +1,7 @@
-Câu A1
+### 📋 PHIẾU BÀI TẬP 02
+## 📋 PHẦN A - KIỂM TRA ĐỌC HIỂU
+
+# Câu A1 - Input Types: 
 1. type="email": Ô nhập text, tự kiểm tra có @ và format email, dùng cho form đăng ký/đăng nhập
 2. type="password": Ô nhập text, ẩn ký tự nhập vào, dùng cho form đăng nhập, đặt lại mật khẩu
 3. type="tel": Ô nhập text, hiển thị bàn phím số trên mobile, dùng cho số điện thoại liên hệ
@@ -9,46 +12,52 @@ Câu A1
 8. type="file": Nút chọn file, dùng cho upload ảnh đại diện, tài liệu đính kèm
 9. type="url": Ô nhập text, tự kiểm tra http:// hoặc https:// , dùng cho link website, social media
 10. type="search": Ô tìm kiếm có nút X để xóa, dùng cho ô tìm kiếm sản phẩm
-Câu A2
+
+# Câu A2 -  Validation Attributes:
 Trường hợp 1: `<input type="text" required value="">` user để trống
-→ THẤT BẠI vì required nhưng value rỗng.
+→ Fail: Vi phạm thuộc tính 'required'(ô nhập liệu bị để trống).
 
 Trường hợp 2: `<input type="email" value="abc">` user gõ "abc"
-→ THẤT BẠI vì "abc" không phải email hợp lệ (thiếu @ và domain).
+→ Fail: Sai định dạng 'type="email"' (thiếu ký tự @ và tên miền).
 
 Trường hợp 3: `<input type="number" min="1" max="10" value="15">` user gõ 15
-→ THẤT BẠI vì giá trị 15 > max (10).
+→ Fail: Vượt quá giới hạn 'max="10"' (giá trị 15 lớn hơn mức cho phép).
 
 Trường hợp 4: `<input type="text" pattern="[0-9]{10}" value="abc123">` user gõ "abc123"
-→ THẤT BẠI vì pattern yêu cầu 10 chữ số, nhưng "abc123" có chữ cái.
+→ Fail: : Không khớp mẫu pattern (yêu cầu 10 chữ số, nhưng nhập cả chữ và số).
 
 Trường hợp 5: `<input type="password" minlength="8" value="123">` user gõ "123"
-→ THẤT BẠI vì chỉ có 3 ký tự, nhỏ hơn minlength (8).
+→ Fail: Không đủ độ dài minlength="8" (mới chỉ có 3 ký tự).
 
-Câu A3
+# Câu A3 - Accessibility:
+
 1. Tại sao `<label for="email">` quan trọng cho người dùng screen reader?
-   - Khi người dùng sử dụng screen reader (NVDA, VoiceOver), label cho biết ô nhập đó dùng để làm gì. Không có label, screen reader chỉ đọc "text field" mà không biết đó là email hay password. Thuộc tính `for` kết nối label với input qua id tương ứng.
+   - Định danh ô nhập liệu: Screen reader không "nhìn" thấy giao diện. Nếu không có label được kết nối bằng for, khi tab vào ô input, nó chỉ đọc là "Edit text, blank" (Ô nhập liệu trống). Có label, nó sẽ đọc: "Email, edit text".
+
+   - Mở rộng vùng bấm: Giúp người dùng (đặc biệt là người run tay hoặc dùng mobile) dễ dàng click vào dòng chữ để focus vào ô nhập liệu thay vì phải bấm chính xác vào cái ô nhỏ.
 
 2. Khi nào dùng `<fieldset>` + `<legend>`? Cho ví dụ cụ thể.
-   - Dùng khi có nhóm các input liên quan với nhau. Ví dụ:
+   - Dùng để nhóm các input có liên quan chặt chẽ với nhau về mặt ngữ nghĩa, giúp người dùng hiểu bối cảnh của nhóm đó. Ví dụ:
    ```html
-   <fieldset>
-       <legend>Thông tin cá nhân</legend>
-       <label for="fullname">Họ tên:</label>
-       <input type="text" id="fullname">
-       <label for="email">Email:</label>
-       <input type="email" id="email">
-       <label for="phone">SĐT:</label>
-       <input type="tel" id="phone">
-   </fieldset>
+  <fieldset>
+    <legend>Phương thức thanh toán</legend>
+    <input type="radio" id="visa" name="payment"> <label for="visa">Visa</label>
+    <input type="radio" id="momo" name="payment"> <label for="momo">Momo</label>
+</fieldset>
 
 3. `aria-label` dùng khi nào? Tại sao KHÔNG nên dùng `aria-label` khi đã có `<label>`?
-   - `aria-label` dùng khi không thể hiển thị label trực quan (ví dụ: button icon, link không có text). Không nên dùng khi đã có `<label>` vì: bị thừa vì chung mục đích, screen reader sẽ ưu tiên aria-label và bỏ qua label trực quan, phải cập nhật cả 2 nơi khi có thay đổi dễ sai sót.
+   - `aria-label`:Dùng cho các phần tử không có văn bản hiển thị trên màn hình nhưng cần mô tả cho screen reader. 
+   - Không dùng chung với `<label>` vì:* Gây nhiễu: aria-label sẽ ghi đè hoàn toàn nội dung của <label>. Nếu dùng cả hai, screen reader chỉ đọc cái aria-label, dẫn đến mất đồng bộ giữa cái người dùng nhìn thấy và cái họ nghe thấy.
 
-Câu A4
+# Câu A4 - Media:
+
 1. `loading="lazy"` trên thẻ `<img>`:
-   - Chỉ tải ảnh khi nó xuất hiện trong viewport (người dùng kéo trang đến). Cải thiện: tốc độ tải trang ban đầu, giảm băng thông, trải nghiệm người dùng tốt hơn.
-   - Không nên dùng khi: ảnh nằm ngay trên đầu trang, ảnh nhỏ, ảnh cần load ngay để SEO.
+   - Chỉ tải ảnh khi nó xuất hiện trong viewport (người dùng kéo trang đến). 
+   - Cải thiện: 
+      + Tốc độ tải trang
+      + Tiết kiệm băng thông
+      + Tăng điểm hiệu năng
+   - Không nên dùng khi: Ảnh ở phía trên cùng : Không dùng cho logo, ảnh banner chính  mà người dùng thấy ngay khi vừa vào trang. Việc lazy load các ảnh này sẽ làm chậm quá trình hiển thị nội dung chính.
 
 2. Tại sao nên cung cấp nhiều `<source>` trong thẻ `<video>`?
    - Vì các browser hỗ trợ format video khác nhau. Cung cấp nhiều source đảm bảo video chơi được trên mọi browser.
@@ -61,7 +70,7 @@ Câu A4
      - Ảnh trang trí: `alt=""` (để trống vì là ảnh trang trí)
      - Ảnh biểu đồ: "Biểu đồ doanh thu Q1/2026 tăng 25% so với Q4/2025, đạt 150 tỷ đồng"
 
-Câu A5
+# Câu A5 - So sánh <figure> vs <img>:
 
 Cách 1 (chỉ dùng `<img>`):
 - Khi ảnh là nội dung chính, không cần caption

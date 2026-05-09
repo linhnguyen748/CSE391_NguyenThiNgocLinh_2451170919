@@ -17,7 +17,7 @@
 - Waterfall timeline thể hiện tiến trình tải
 - Thông số tổng kết: Tổng số request, tổng dung lượng và thời gian trang web load xong hoàn toàn.
 
-![Ảnh màn hình tab Network](screenshots/tab-network.png)
+- Screenshot 
 
 ----------
 
@@ -112,8 +112,25 @@ Text C Text D
 ----------
 
 # Câu B4 - Phân tích trang web thật
+ 1. - 3 thẻ semantic HTML5 được sử dụng:
+        + `<header>`:Có thuộc tính id="main-header". Thẻ này nằm ở đầu trang, bao bọc logo, thanh tìm kiếm và các tiện ích tài khoản.
+        + `<footer>`: Có thuộc tính id="main-footer". Thẻ này nằm ở cuối cấu trúc trang, chứa các liên kết chính sách và thông tin công ty.
+        + `<a>`:  Thẻ này xác định chính xác một siêu liên kết điều hướng.
+    - 2 thẻ mà trang KHÔNG dùng đúng semantic:
+        + Thẻ `<div>` thay cho `<main>`: Toàn bộ nội dung chính của trang web (phần hiển thị sản phẩm) đang được bao bọc bởi các thẻ `<div>` thay vì sử dụng thẻ `<main>` để chỉ định nội dung độc nhất của trang.
+        + Thẻ `<div>` thay cho `<aside>`: Các phần nội dung phụ như "Danh mục" hoặc "Sản phẩm tương tự" thường được bọc trong thẻ `<div>` thay vì thẻ `<aside>` để trình duyệt và các công cụ hỗ trợ hiểu rõ đây là nội dung bổ trợ.
 
+ 2. 
+    - Nội dung hiển thị: Bảng hiển thị danh sách các thông số kỹ thuật và thuộc tính của sản phẩm (ví dụ: Nhà xuất bản, Kích thước, Loại bìa, Số trang đối với sản phẩm sách).
+    - Bảng này trên Tiki chỉ sử dụng `<tbody>` để chứa các hàng dữ liệu (`<tr>`). Trang web không sử dụng `<thead>` vì cấu trúc bảng này là dạng liệt kê thuộc tính theo hàng dọc, không có hàng tiêu đề cột phía trên.
 
+  3. 
+    - Action: /search (Chỉ định dữ liệu sẽ được gửi về trang kết quả tìm kiếm của hệ thống).
+
+    - Method: get (Từ khóa tìm kiếm sẽ được hiển thị trực tiếp trên URL sau khi người dùng nhấn Enter/Tìm kiếm).
+    * Input types được dùng:
+        + type="text" (hoặc type="search"): Đây là ô nhập liệu chính để người dùng điền từ khóa.
+        + type="hidden": Một số tham số ẩn được dùng để lưu trữ thông tin kỹ thuật như nguồn tìm kiếm hoặc mã phân loại mà không hiển thị cho người dùng thấy.
 
 ----------
 
