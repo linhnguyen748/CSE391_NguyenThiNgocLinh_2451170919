@@ -78,7 +78,7 @@ Trường hợp 5: `<input type="password" minlength="8" value="123">` user gõ 
      - Ảnh trang trí: `alt=""` (để trống vì là ảnh trang trí)
      - Ảnh biểu đồ: `alt="Biểu đồ cột cho thấy doanh thu Quý 1 năm 2026 tăng trưởng 15%"`
 
-   ----------
+----------
 
 # Câu A5 - So sánh <figure> vs <img>:
 1. Phân tích: 
@@ -108,4 +108,54 @@ Ví dụ thực tế:
    - Ngôn ngữ tĩnh: HTML là ngôn ngữ đánh dấu, không có logic điều kiện (if-else). Việc so sánh hai chuỗi ký tự đòi hỏi logic lập trình mà chỉ JavaScript hoặc Server-side mới thực hiện được.
 
    - Giới hạn của Regex: Thuộc tính pattern chỉ kiểm tra định dạng dữ liệu (như độ dài, ký tự đặc biệt) chứ không thể tham chiếu đến giá trị động của một ô nhập liệu khác.
-   
+
+----------
+
+## PHẦN C - PHÂN TÍCH & SUY LUẬN:
+
+# Câu C1 — Debug Form:
+Lỗi 1: Dòng 2 — Input "Tên" không có id và label, vi phạm accessibility
+Sửa: `<label for="name">Tên:</label> <input type="text" id="name" name="name" required>`
+
+Lỗi 2: Dòng 3 — Input email không có id và label, vi phạm accessibility  
+Sửa: `<label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>`
+
+Lỗi 3: Dòng 4 — Input password không có id và label
+Sửa: `<label for="password">Mật khẩu:</label> <input type="password" id="password" name="password" placeholder="Mật khẩu" required>`
+
+Lỗi 4: Dòng 5 — Input xác nhận password không có id và label
+Sửa: `<label for="confirm_password">Nhập lại mật khẩu:</label> <input type="password" id="confirm_password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>`
+
+Lỗi 5: Dòng 6 — Input phone dùng type="text" thay vì type="tel", không có id và label
+Sửa: `<label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567" pattern="[0-9]{10}" required>`
+
+Lỗi 6: Dòng 7-10 — Select không có id, label, và option đầu tiên không có value=""
+Sửa: `<label for="city">Thành phố:</label> <select id="city" name="city" required> <option value="">-- Chọn thành phố --</option> <option>Hà Nội</option> <option>TP.HCM</option> </select>`
+
+Lỗi 7: Dòng 11-12 — Checkbox không có id, label bao quanh text nhưng không có for/id matching
+Sửa: `<label for="agree"> <input type="checkbox" id="agree" name="agree" required> Tôi đồng ý điều khoản </label>`
+
+Lỗi 8: Dòng 13 — Submit button nên dùng `<button type="submit">` thay vì `<input type="submit">`
+Sửa: `<button type="submit">Gửi</button>`
+
+----------
+
+# Câu C2 — Thiết kế chiến lược Validation:
+1. Regex Pattern:
+   - CMND/CCCD (12 chữ số): `pattern="[0-9]{12}"`
+   - Số tài khoản (10-15 chữ số): `pattern="[0-9]{10,15}"`
+
+2. HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+   - Trả lời: KHÔNG.
+   - Giải thích: HTML5 validation chỉ là lớp bảo vệ bề nổi nhằm cải thiện trải nghiệm người dùng (UX). Người dùng có thể dễ dàng vô hiệu hóa hoặc vượt qua nó bằng cách sử dụng DevTools (F12) để xóa thuộc tính `required`, `pattern`, hoặc sử dụng các công cụ như Postman/CURL để gửi dữ liệu trực tiếp đến server mà không qua trình duyệt.
+
+3. 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+   - So sánh các trường dữ liệu: Ví dụ kiểm tra "Xác nhận mật khẩu" có trùng khớp với "Mật khẩu" hay không.
+
+   - Kiểm tra tính khả dụng: Ví dụ kiểm tra xem Email hoặc Username đã tồn tại trong cơ sở dữ liệu hay chưa (cần gọi API).
+
+   - Logic nghiệp vụ phức tạp: Ví dụ kiểm tra số thẻ ngân hàng có hợp lệ theo thuật toán Luhn hoặc giới hạn ngày sinh phải đủ 18 tuổi dựa trên thời gian thực.
+4. 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+   - Tấn công SQL Injection: hacker gửi dữ liệu độc hại qua request trực tiếp
+   - Tấn công XSS: chèn script vào input không được sanitize
+   - Dữ liệu không nhất quán: frontend có thể bị bypass, dữ liệu rác vào database.
