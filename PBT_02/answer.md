@@ -108,3 +108,4 @@ Ví dụ thực tế:
    - Ngôn ngữ tĩnh: HTML là ngôn ngữ đánh dấu, không có logic điều kiện (if-else). Việc so sánh hai chuỗi ký tự đòi hỏi logic lập trình mà chỉ JavaScript hoặc Server-side mới thực hiện được.
 
    - Giới hạn của Regex: Thuộc tính pattern chỉ kiểm tra định dạng dữ liệu (như độ dài, ký tự đặc biệt) chứ không thể tham chiếu đến giá trị động của một ô nhập liệu khác.
+   

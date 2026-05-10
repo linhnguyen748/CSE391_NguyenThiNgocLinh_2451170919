@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán Đơn Hàng</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; background-color: #f4f7f6; }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #2ecc71; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #2ecc71; color: white; }
+        tfoot { font-weight: bold; background-color: #f9f9f9; }
+        fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; background: white; }
+        legend { font-weight: bold; color: #27ae60; padding: 0 10px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; }
+        input[type="text"], input[type="date"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .radio-group label { display: inline; font-weight: normal; margin-right: 15px; }
+        button { background-color: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background-color: #219150; }
+        output { font-weight: bold; color: #e74c3c; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+    <h1>Xác Nhận Đơn Hàng</h1>
+
+    <div class="form-group">
+        <label for="product-search">Tìm thêm sản phẩm nhanh:</label>
+        <input type="text" id="product-search" list="product-list" placeholder="Gõ tên sản phẩm...">
+        <datalist id="product-list">
+            <option value="iPhone 16 Pro Max">
+            <option value="MacBook Pro M3">
+            <option value="AirPods Pro Gen 2">
+            <option value="iPad Pro 11 inch">
+        </datalist>
+    </div>
+
+    <section>
+        <h2>1. Giỏ hàng của bạn</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>iPhone 16 Pro Max</td>
+                    <td>30.000.000đ</td>
+                    <td>1</td>
+                    <td>30.000.000đ</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ốp lưng MagSafe</td>
+                    <td>1.500.000đ</td>
+                    <td>2</td>
+                    <td>3.000.000đ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cáp sạc USB-C</td>
+                    <td>500.000đ</td>
+                    <td>1</td>
+                    <td>500.000đ</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right;">Tổng cộng:</td>
+                    <td><output name="total">33.500.000đ</output></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <form action="#" method="POST">
+        
+        <fieldset>
+            <legend>Phương thức thanh toán & Ưu đãi</legend>
+            <div class="form-group radio-group">
+                <label>Chọn phương thức:</label><br>
+                <input type="radio" id="cod" name="payment" value="cod" checked>
+                <label for="cod">COD (Tiền mặt)</label>
+                <input type="radio" id="bank" name="payment" value="bank">
+                <label for="bank">Chuyển khoản</label>
+                <input type="radio" id="wallet" name="payment" value="wallet">
+                <label for="wallet">Ví điện tử</label>
+            </div>
+
+            <div class="form-group">
+                <label for="coupon">Mã giảm giá:</label>
+                <input type="text" id="coupon" name="coupon" 
+                       pattern="SALE[0-9]{4}" 
+                       placeholder="VD: SALE2026" 
+                       title="Mã phải bắt đầu bằng SALE và kèm 4 chữ số">
+            </div>
+
+            <div class="form-group">
+                <label>Điểm tích lũy hiện tại (80/100):</label>
+                <progress value="80" max="100" style="width: 100%;"></progress>
+            </div>
+
+            <div class="form-group">
+                <label for="note">Ghi chú đơn hàng (Tùy chọn):</label>
+                <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt về đóng gói..."></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Thông tin giao hàng</legend>
+            <div class="form-group">
+                <label for="delivery-date">Ngày giao hàng mong muốn:</label>
+                <input type="date" id="delivery-date" name="delivery-date" min="2026-05-11" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time-slot">Khung giờ giao hàng:</label>
+                <select id="time-slot" name="time-slot" required>
+                    <option value="">-- Chọn khung giờ --</option>
+                    <option value="morning">Sáng 8-12h</option>
+                    <option value="afternoon">Chiều 14-18h</option>
+                    <option value="evening">Tối 18-21h</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Số ngày giao hàng dự kiến (1-7 ngày):</label>
+                <input type="range" id="duration" name="duration" min="1" max="7" step="1" value="3" 
+                       oninput="this.nextElementSibling.value = this.value + ' ngày'">
+                <output>3 ngày</output>
+            </div>
+        </fieldset>
+
+        <button type="submit" aria-label="Xác nhận đặt hàng">HOÀN TẤT ĐẶT HÀNG</button>
+    </form>
+
+</body>
+</html>
