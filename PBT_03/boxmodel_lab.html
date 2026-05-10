@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing và Layout</title>
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+<body>
+    <h1>Phần 1: Content-box vs Border-box</h1>
+    <div class="box-wrapper">
+    <div class="box content-box">Hộp 1: content-box</div>
+    <div class="box border-box">Hộp 2: border-box</div>
+    </div>
+
+    <h1>Phần 2: Layout 3 cột</h1>
+    <h2>Với border-box (tổng = 1000px)</h2>
+    <div class="container">
+        <div class="sidebar">Cột trái (sidebar)</div>
+        <div class="content">Cột giữa (content)</div>
+        <div class="ads">Cột phải (ads)</div>
+    </div>
+
+    <h2>Không dùng border-box (tổng > 1000px)</h2>
+    <div class="container no-border-box">
+        <div class="sidebar">Cột trái (sidebar)</div>
+        <div class="content">Cột giữa (content)</div>
+        <div class="ads">Cột phải (ads)</div>
+    </div>
+</body>
+</html>
