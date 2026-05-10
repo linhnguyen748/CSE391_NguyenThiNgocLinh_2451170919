@@ -1,0 +1,45 @@
+/* --- Cấu hình gốc gây vỡ layout --- */
+.container {
+    width: 960px;
+    margin: 20px auto;
+    border: 2px solid red; /* Để nhìn rõ khung container */
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    background-color: #f0f0f0;
+}
+
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    background-color: #e0e0e0;
+}
+
+/* --- CÁCH SỬA 1: Dùng border-box --- */
+/* Đưa padding và border vào bên trong chiều rộng khai báo */
+.fix-1 .sidebar, 
+.fix-1 .content {
+    box-sizing: border-box;
+}
+
+/* --- CÁCH SỬA 2: Không dùng border-box (Tính toán thủ công) --- */
+/* Phải lấy Width mong muốn trừ đi (Padding + Border) */
+
+.fix-2 .sidebar {
+    /* Muốn tổng là 300px: 300 - (20*2) - (1*2) = 258px */
+    width: 258px; 
+    box-sizing: content-box; /* Mặc định */
+}
+
+.fix-2 .content {
+    /* Muốn tổng là 660px: 660 - (30*2) - (1*2) = 598px */
+    width: 598px;
+    box-sizing: content-box; /* Mặc định */
+}

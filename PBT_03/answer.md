@@ -204,3 +204,20 @@ Specificity: 1,2,1 (1 ID + 2 Classes + 1 Element)
 
 ## PHẦN C - DEBUG & SUY LUẬN:
 # Câu C1 — Debug CSS Layout:
+1. Chiều rộng thực tế của sidebar và content 
+- `.sidebar`: width 300px + padding 20px hai bên + border 1px hai bên = 300 + 40 + 2 = 342px
+- `.content`: width 660px + padding 30px hai bên + border 1px hai bên = 660 + 60 + 2 = 722px
+- Tổng = 342 + 722 = 1064px > 960px
+
+2.  Vì 1064px lớn hơn chiều rộng của container (960px), nên không đủ chỗ để hai khối nằm cạnh nhau trên cùng một hàng. Do đó, khối content bị đẩy xuống dòng mới.
+
+3. 2 cách sửa:
+Cách 1: Dùng `border-box`
++ Giải pháp: Thêm `box-sizing: border-box`; cho `.sidebar` và `.content.`
+Kết quả: Padding và border tính vào trong `width`. Tổng chiều rộng: 300px + 660px = 960px.
+
+Cách 2: Không dùng `border-box` (Tính lại `width`)
++ Giải pháp: Giảm `width` thủ công để bù trừ cho padding và border.
+  * Sidebar: Sửa thành `width: 258px;` (300 - 40 - 2). 
+  * Content: Sửa thành `width: 598px;` (660 - 60 - 2).
+Kết quả: Tổng chiều rộng thực tế sau khi cộng padding/border quay về đúng 960px.
