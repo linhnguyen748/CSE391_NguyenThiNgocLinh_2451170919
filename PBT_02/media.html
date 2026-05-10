@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Multimedia Sản Phẩm</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        /* Ảnh responsive: yêu cầu bắt buộc */
+        img, video, iframe { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 10px auto; }
+        section { margin-bottom: 50px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        figure { margin: 20px 0; text-align: center; background: #f9f9f9; padding: 15px; border-radius: 8px; }
+        figcaption { font-style: italic; font-size: 0.9em; color: #666; margin-top: 10px; }
+        .svg-logo { width: 100px; height: 100px; }
+    </style>
+</head>
+<body>
+
+    <header style="text-align: center;">
+        <svg class="svg-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="80" height="80" rx="15" fill="#2563eb" />
+            <circle cx="50" cy="50" r="25" fill="white" />
+            <text x="50" y="55" text-anchor="middle" font-size="10" font-family="Arial" fill="#2563eb" font-weight="bold">MEDIA</text>
+        </svg>
+        <h1>Showcase Sản Phẩm Công Nghệ</h1>
+    </header>
+
+    <section>
+        <h2>I. Hình ảnh sản phẩm (Lazy Loading)</h2>
+        
+        <figure>
+            <img src="https://picsum.photos/id/1/600/400" alt="Laptop Pro phiên bản 2026 màu bạc" loading="lazy">
+            <figcaption>Sản phẩm 1: Laptop Pro với hiệu năng xử lý cực đỉnh.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://picsum.photos/id/160/600/400" alt="Điện thoại thông minh camera góc rộng" loading="lazy">
+            <figcaption>Sản phẩm 2: Smartphone thế hệ mới hỗ trợ quay phim 8K.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://picsum.photos/id/201/600/400" alt="Tai nghe không dây chống ồn chủ động" loading="lazy">
+            <figcaption>Sản phẩm 3: Headphone Wireless với thời lượng pin 50 giờ.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>II. Video Review (YouTube)</h2>
+        <div style="aspect-ratio: 16/9;">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section>
+        <h2>III. Video Trailer (Local Video)</h2>
+        <video controls poster="https://picsum.photos/id/101/800/450" style="width: 100%;">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <source src="https://www.w3schools.com/html/mov_bbb.webm" type="video/webm">
+            Trình duyệt của bạn không hỗ trợ thẻ video.
+        </video>
+    </section>
+
+    <section>
+        <h2>IV. Nhạc nền giới thiệu</h2>
+        <div style="text-align: center;">
+            <p>Nhấn Play để nghe âm thanh mô tả sản phẩm:</p>
+            <audio controls style="width: 80%;">
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Trình duyệt của bạn không hỗ trợ thẻ audio.
+            </audio>
+        </div>
+    </section>
+
+</body>
+</html>
