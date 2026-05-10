@@ -221,3 +221,30 @@ Cách 2: Không dùng `border-box` (Tính lại `width`)
   * Sidebar: Sửa thành `width: 258px;` (300 - 40 - 2). 
   * Content: Sửa thành `width: 598px;` (660 - 60 - 2).
 Kết quả: Tổng chiều rộng thực tế sau khi cộng padding/border quay về đúng 960px.
+
+----------
+
+# Câu C2  —  Cascade Puzzle:
+
+1."Sản phẩm A" (h2)
+* font-size: 20px
+- Giải thích: Rule `.card .title` nhắm trực tiếp vào phần tử này với độ ưu tiên cao hơn font-size kế thừa từ `.container` hay `body`.
+
+* color: green
+- Giải thích: Dù có rule `#featured .title` (màu đỏ) rất mạnh, nhưng `.highlight` sử dụng `!important` nên nó chiếm quyền ưu tiên cao nhất tuyệt đối.
+
+2. "Mô tả sản phẩm" (p trong card featured)
+* color: blue
+- Giải thích: Rule `.card p { color: inherit; }` ép phần tử p kế thừa màu từ cha nó là `.card.` Mà `.card` có quy định `color: blue;`.
+
+3. "Sản phẩm B" (h2)
+* font-size: 20px
+- Giải thích: Áp dụng rule `.card .title`.
+
+* color: blue
+- Giải thích: Phần tử này không có rule màu riêng cụ thể và không dính `#featured`. Nó sẽ kế thừa màu từ cha trực tiếp là `.card`.
+
+4. "Mô tả sản phẩm B" (p.highlight)
+* color: green
+- Giải thích: Rule `.highlight` với `!important` ghi đè hoàn toàn rule `.card p` và tính kế thừa.
+
