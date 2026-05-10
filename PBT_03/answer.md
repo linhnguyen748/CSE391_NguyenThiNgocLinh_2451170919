@@ -149,3 +149,58 @@ Do margin dọc đối dấu sẽ cộng lại khi collapse, nên 40 + (-10) = 3
 ----------
 
 # Bài B2  — Box Model Lab:
+- Hộp 1 (content-box):
+  + Chiều rộng thực tế: 350px (đo từ DevTools)
+- Hộp 2 (border-box):
+  + Chiều rộng thực tế: 300px (đo từ DevTools)
+
+* Sự khác biệt:
+- content-box (Mặc định): Thuộc tính width chỉ tính cho phần nội dung. Nếu thêm padding hoặc border, hộp sẽ bị phình to ra ngoài.
+
+- border-box: Thuộc tính width là kích thước cuối cùng của hộp. Padding và border sẽ được đẩy vào bên trong, giúp việc kiểm soát layout chính xác và dễ dàng hơn.
+
+----------
+
+# Bài B3 — Specificity Battle:
+1. Danh sách 10 Rules và Specificity Score:
+* `{ color: gray; }`
+Specificity: 0,0,0 (Universal Selector)
+
+* `p { color: brown; }`
+Specificity: 0,0,1 (1 Element)
+
+* `.text { color: orange; }`
+Specificity: 0,1,0 (1 Class)
+
+* `p.text { color: pink; }`
+Specificity: 0,1,1 (1 Element + 1 Class)
+
+* `.text.highlight { color: red; }`
+Specificity: 0,2,0 (2 Classes)
+
+* `#demo { color: blue; }`
+Specificity: 1,0,0 (1 ID)
+
+* `p#demo { color: purple; }`
+Specificity: 1,0,1 (1 ID + 1 Element)
+
+* `#demo.text { color: green; }`
+Specificity: 1,1,0 (1 ID + 1 Class)
+
+* `#demo.text.highlight { color: navy; }`
+Specificity: 1,2,0 (1 ID + 2 Classes)
+
+* `p#demo.text.highlight { color: cyan; }`
+Specificity: 1,2,1 (1 ID + 2 Classes + 1 Element) 
+
+2. - Element cuối cùng hiển thị màu Cyan.
+   - Vì Selector `p#demo.text.highlight` có độ ưu tiên cao nhất . Trình duyệt sẽ áp dụng rule có điểm số cao nhất bất kể thứ tự xuất hiện trong file.
+
+3. Thay đổi thứ tự Rules
+  - Kết quả KHÔNG thay đổi
+  - Vì trong CSS, thứ tự viết chỉ có tác dụng khi hai Selector có **cùng điểm Specificity**. Vì 10 rules trên đều có điểm số khác nhau, rule số 10 sẽ luôn thắng dù bạn có chuyển nó lên đầu file CSS.
+
+  ----------
+
+## PHẦN C - DEBUG & SUY LUẬN:
+# Câu C1 — Debug CSS Layout:
