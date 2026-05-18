@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Grid Layout</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+
+    <div class="grid-container">
+        
+        <!-- 1. HEADER -->
+        <header class="header">
+            <div class="logo">ShopGrid</div>
+            <nav class="nav">
+                <a href="#">Trang chủ</a>
+                <a href="#">Khuyến mãi</a>
+                <a href="#">Giỏ hàng</a>
+            </nav>
+        </header>
+
+        <!-- 2. HERO BANNER (Kèm Bonus Span 2) -->
+        <section class="hero">
+            <div class="hero-featured">
+                <h2>Siêu phẩm iPhone 15 Pro Max</h2>
+                <p>Giảm ngay 20% khi mua kèm phụ kiện</p>
+            </div>
+            <div class="hero-normal">
+                <h3>Phụ kiện</h3>
+                <p>Giảm 50%</p>
+            </div>
+        </section>
+
+        <!-- 3. SIDEBAR (Filter) -->
+        <aside class="sidebar">
+            <h3>Lọc Sản Phẩm</h3>
+            <div class="filter-group">
+                <h4>Thương hiệu</h4>
+                <label><input type="checkbox"> Apple</label>
+                <label><input type="checkbox"> Samsung</label>
+                <label><input type="checkbox"> Xiaomi</label>
+            </div>
+            <div class="filter-group">
+                <h4>Mức giá</h4>
+                <label><input type="checkbox"> Dưới 5 triệu</label>
+                <label><input type="checkbox"> 5 - 15 triệu</label>
+                <label><input type="checkbox"> Trên 15 triệu</label>
+            </div>
+        </aside>
+
+        <!-- 4. MAIN CONTENT (Grid con 3 cột) -->
+        <main class="main-content">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+1" alt="Product">
+                <h4>Điện thoại A</h4>
+                <p class="price">5.000.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+2" alt="Product">
+                <h4>Điện thoại B</h4>
+                <p class="price">8.500.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+3" alt="Product">
+                <h4>Điện thoại C</h4>
+                <p class="price">12.000.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+4" alt="Product">
+                <h4>Điện thoại D</h4>
+                <p class="price">15.000.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+5" alt="Product">
+                <h4>Điện thoại E</h4>
+                <p class="price">22.000.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=Card+6" alt="Product">
+                <h4>Điện thoại F</h4>
+                <p class="price">29.990.000 ₫</p>
+                <button>Thêm vào giỏ</button>
+            </div>
+        </main>
+
+        <!-- 5. ADS (Aside) -->
+        <aside class="ads">
+            <img src="https://via.placeholder.com/180x400?text=ADS+BANNER" alt="Quảng cáo" class="ads-banner">
+        </aside>
+
+        <!-- 6. FOOTER -->
+        <footer class="footer">
+            <p>&copy; 2026 ShopGrid. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

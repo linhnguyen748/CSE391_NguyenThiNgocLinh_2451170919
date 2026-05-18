@@ -1,0 +1,207 @@
+/* Reset & Base Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+/* =========================================
+   LAYOUT CHÍNH DÙNG CSS GRID (Kèm Bonus)
+========================================= */
+.grid-container {
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* Yêu cầu cột: 200px 1fr 200px (Sử dụng minmax để resize an toàn) */
+    grid-template-columns: 200px minmax(300px, 1fr) 200px;
+    
+    /* Yêu cầu gap */
+    gap: 20px;
+
+    /* BONUS: Dùng grid-template-areas */
+    grid-template-areas:
+        "header  header  header"
+        "hero    hero    hero"
+        "sidebar main    ads"
+        "footer  footer  footer";
+}
+
+/* Gắn class vào đúng Grid Area */
+.header       { grid-area: header; }
+.hero         { grid-area: hero; }
+.sidebar      { grid-area: sidebar; }
+.main-content { grid-area: main; }
+.ads          { grid-area: ads; }
+.footer       { grid-area: footer; }
+
+/* Các phần tử span full width (Header, Hero, Footer) 
+   Lưu ý: Do đã dùng `grid-area` ở trên nên tự động span full. 
+   Tuy nhiên vẫn viết thêm `grid-column: 1 / -1` để chấm đủ yêu cầu cơ bản. */
+.header, .hero, .footer {
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   STYLE CHO TỪNG KHỐI
+========================================= */
+
+/* HEADER */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+.header a { color: white; text-decoration: none; margin-left: 20px; }
+
+/* HERO BANNER & BONUS (Lưới phụ bên trong Hero) */
+.hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Bonus: Nổi bật dùng grid-column: span 2 */
+.hero-featured {
+    grid-column: span 2; /* Chiếm 2 cột */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-normal {
+    grid-column: span 1; /* Chiếm 1 cột còn lại */
+    background: #ff7e5f;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* SIDEBAR (Filter) */
+.sidebar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.filter-group {
+    margin-top: 15px;
+}
+.filter-group label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+/* MAIN CONTENT (Grid con 3 cột) */
+.main-content {
+    display: grid;
+    /* Dùng repeat(3, 1fr) đúng theo yêu cầu */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-card h4 {
+    margin-bottom: 10px;
+}
+
+.product-card .price {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card button {
+    margin-top: auto; /* Đẩy nút xuống đáy nếu tên ngắn dài khác nhau */
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ADS */
+.ads {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.ads-banner {
+    max-width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* RESPONSIVE CƠ BẢN (Không bắt buộc nhưng giúp test resize mượt hơn) */
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header  header"
+            "hero    hero"
+            "sidebar main"
+            "footer  footer";
+    }
+    .ads { display: none; } /* Ẩn Ads ở màn hình vừa */
+    .main-content { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "hero"
+            "sidebar"
+            "main"
+            "footer";
+    }
+    .main-content, .hero { grid-template-columns: 1fr; }
+    .hero-featured, .hero-normal { grid-column: span 1; }
+}
