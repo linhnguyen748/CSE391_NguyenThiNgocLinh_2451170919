@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <!-- 1. Fixed header -->
+    <header class="fixed-header">
+        <div class="logo">MyLogo</div>
+        <nav class="navigation">
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+
+    <div class="layout-container">
+        <!-- 2. Sticky sidebar -->
+        <aside class="sticky-sidebar">
+            <h3>Danh mục</h3>
+            <ul>
+                <li>Laptop</li>
+                <li>Điện thoại</li>
+                <li>Phụ kiện</li>
+            </ul>
+        </aside>
+
+        <!-- Nội dung chính -->
+        <main class="main-content">
+            <h1>Sản phẩm nổi bật</h1>
+            
+            <!-- 3. Badge "HOT" trên card sản phẩm -->
+            <div class="product-card">
+                <div class="badge-hot">HOT</div>
+                <img src="https://via.placeholder.com/250x150" alt="Product Image">
+                <h3>Laptop Gaming Pro</h3>
+                <p>Cấu hình siêu khủng, chiến mọi tựa game AAA.</p>
+                <button>Mua ngay</button>
+            </div>
+
+            <!-- Nội dung giả để tạo thanh cuộn (scroll) -->
+            <div class="dummy-content">
+                <h2>Cuộn xuống để xem hiệu ứng</h2>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+                <p>Nội dung mô phỏng...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- 4. Scroll to top button -->
+    <a href="#" class="scroll-to-top">↑</a>
+
+</body>
+</html>
