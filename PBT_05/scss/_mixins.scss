@@ -1,0 +1,29 @@
+// Import file biến để dùng kích thước breakpoint
+@use 'variables' as *;
+
+/* 1. Mixin Responsive */
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == tablet {
+        @media (min-width: $breakpoint-tablet) { @content; }
+    } @else if $breakpoint == desktop {
+        @media (min-width: $breakpoint-desktop) { @content; }
+    }
+}
+
+/* 2. Mixin Flex Center */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. Mixin Card Shadow (Kèm hiệu ứng hover) */
+@mixin card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        transform: translateY(-8px);
+    }
+}

@@ -1,0 +1,87 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* BLOCK NESTED 1: CARD */
+.card {
+    background: white;
+    border-radius: $spacing-sm;
+    overflow: hidden;
+    
+    // Gọi mixin tạo bóng đổ
+    @include card-shadow;
+
+    // Lồng thẻ con
+    .card-body {
+        padding: $spacing-md;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .card-price {
+        color: $secondary-color;
+        font-weight: bold;
+        margin-bottom: $spacing-md;
+    }
+
+    // Dùng & để tham chiếu class cha (ví dụ có thêm class .featured)
+    &.featured {
+        border: 2px solid $primary-color;
+    }
+}
+
+/* BLOCK NESTED 2: HEADER */
+.header {
+    background-color: $primary-color;
+    color: white;
+    padding: $spacing-md;
+    
+    // Gọi mixin flex
+    @include flex-center;
+    justify-content: space-between; // Ghi đè lại justify-content
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .nav-menu {
+        display: none; // Mặc định ẩn ở mobile
+
+        // Responsive lên tablet thì hiện ngang
+        @include respond-to(tablet) {
+            display: flex;
+            gap: $spacing-md;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+
+            // Pseudo-class hover lồng nhau
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* BLOCK NESTED 3: BUTTON */
+.btn {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+
+    // Pseudo-class lồng nhau + dùng hàm darken của SCSS
+    &:hover {
+        background-color: darken($primary-color, 15%);
+        transform: scale(1.05);
+    }
+}
