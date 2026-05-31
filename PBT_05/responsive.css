@@ -1,0 +1,241 @@
+/* ========================================================
+   BASE STYLES (MẶC ĐỊNH LÀ MOBILE < 768px)
+   Yêu cầu: Mobile-First Approach
+   ======================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Font size responsive: Mobile mặc định là 14px */
+body {
+    font-size: 14px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Ảnh responsive: Luôn vừa khung chứa, không bị méo */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header & Navigation (Mobile: Hamburger) */
+.header {
+    background-color: #2563eb;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Checkbox toggle ẩn đi */
+.menu-checkbox {
+    display: none; 
+}
+
+.hamburger {
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+/* Menu dọc và Ẩn trên mobile */
+.nav-menu {
+    width: 100%;
+    display: none; /* Mặc định ẩn */
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Pure CSS Menu: Hiện menu khi click vào Hamburger */
+.menu-checkbox:checked ~ .nav-menu {
+    display: flex; 
+}
+
+/* Layout Content (Mobile) */
+.content-wrapper {
+    padding: 15px;
+}
+
+/* Ẩn Sidebar trên Mobile */
+.sidebar {
+    display: none; 
+}
+
+/* Ẩn Ads Bar trên Mobile */
+.ads-bar {
+    display: none; 
+}
+
+/* Product Grid (Mobile: 1 cột) */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 Cột */
+    gap: 20px;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.card-price {
+    color: #dc2626;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+/* ========================================================
+   TABLET (≥ 768px)
+   ======================================================== */
+@media (min-width: 768px) {
+    /* Font size responsive: Tăng lên 16px */
+    body {
+        font-size: 16px;
+    }
+
+    /* Header: Ẩn Hamburger, Menu hiển thị ngang */
+    .hamburger {
+        display: none; 
+    }
+    
+    .nav-menu {
+        display: flex;
+        width: auto;
+        flex-direction: row; /* Menu ngang */
+        margin-top: 0;
+    }
+
+    .nav-menu a {
+        padding: 0 15px;
+        border-bottom: none;
+    }
+
+    /* Sidebar: Hiện ra, bố cục ngang (Filter dropdown) */
+    .sidebar {
+        display: block;
+        background: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .filter-options {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+    .filter-options select {
+        padding: 8px;
+        flex: 1;
+    }
+
+    /* Product Grid: 2 Cột */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================================
+   DESKTOP (≥ 1024px)
+   ======================================================== */
+@media (min-width: 1024px) {
+    /* Font size responsive: Tăng lên 18px */
+    body {
+        font-size: 18px;
+    }
+
+    /* Layout chính: Chia 3 cột (Sidebar - Main - Ads) */
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: 250px 1fr 200px;
+        gap: 25px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Sidebar: Đưa về bố cục dọc */
+    .sidebar {
+        margin-bottom: 0;
+    }
+    
+    .filter-options {
+        flex-direction: column; /* Dropdown xếp dọc */
+    }
+
+    /* Product Grid: 4 Cột */
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Ads Bar: Hiện ra ở bên phải */
+    .ads-bar {
+        display: block;
+        background: #fff3cd;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .ad-banner {
+        height: 400px;
+        background: #ffc107;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-top: 15px;
+        border-radius: 4px;
+    }
+}
