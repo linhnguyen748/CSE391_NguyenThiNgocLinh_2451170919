@@ -1,0 +1,146 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    padding: 40px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* =========================================
+   HIỆU ỨNG 4: LOADING SPINNER
+   ========================================= */
+.spinner {
+    width: 50px;
+    height: 50px;
+    /* Hình tròn border */
+    border: 5px solid #e2e8f0; 
+    border-top: 5px solid #2563eb; 
+    border-radius: 50%;
+    /* animation: tên_keyframes thời_gian tốc_độ lặp_lại */
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================================
+   HIỆU ỨNG 5: FADE-IN (CSS ONLY)
+   (Chạy tự động khi load phần tử)
+   ========================================= */
+.fade-in {
+    /* forwards giúp phần tử giữ nguyên trạng thái cuối cùng (opacity: 1) khi chạy xong */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   CƠ BẢN CỦA CARD
+   ========================================= */
+.card {
+    background: white;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    /* HIỆU ỨNG 1: TRANSITION CHO CARD HOVER */
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   HIỆU ỨNG 1: CARD HOVER EFFECT
+   ========================================= */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15); /* Shadow tăng lên */
+}
+
+/* =========================================
+   HIỆU ỨNG 3: IMAGE ZOOM
+   ========================================= */
+.img-container {
+    border-radius: 12px 12px 0 0;
+    /* overflow: hidden để ảnh khi phóng to không bị tràn ra ngoài khung */
+    overflow: hidden; 
+}
+
+.img-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease; /* Chuyển động mượt khi zoom */
+}
+
+/* Khi hover vào card thì ảnh bên trong zoom lên */
+.card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   CƠ BẢN CỦA NÚT & CARD BODY
+   ========================================= */
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-body h3 {
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    color: #dc2626;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   HIỆU ỨNG 2: BUTTON HOVER
+   ========================================= */
+.btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    /* Transition cho màu sắc và kích thước (scale) */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    /* Đổi background và color mượt mà */
+    background-color: #1e3a8a; 
+    color: #f8fafc;
+    /* Scale nhẹ */
+    transform: scale(1.05);
+}
