@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | TailwindCSS</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Hỗ trợ toggle Dark mode bằng class "dark" ở thẻ <html>
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        <i class="fa-solid fa-bolt"></i> TailShop
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium">Trang chủ</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium">Sản phẩm</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 font-medium">Khuyến mãi</a>
+                    
+                    <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                        <i class="fa-solid fa-moon text-gray-800 dark:text-yellow-400"></i>
+                    </button>
+                    
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors shadow">
+                        <i class="fa-solid fa-cart-shopping mr-2"></i>Giỏ hàng
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center gap-4">
+                    <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                        <i class="fa-solid fa-moon dark:text-yellow-400"></i>
+                    </button>
+                    <button class="text-gray-700 dark:text-gray-300 hover:text-blue-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="w-full bg-[url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center h-[500px] relative">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center px-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+                Thời Trang <span class="text-blue-500">Tối Giản</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+                Khám phá bộ sưu tập mới nhất với thiết kế hiện đại, tinh tế. Giảm giá lên đến 50% cho thành viên mới.
+            </p>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                Mua Sắm Ngay <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Sản Phẩm Nổi Bật</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto rounded"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&auto=format&fit=crop" alt="Shirt" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-20%</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate">Áo Thun Trắng Basic</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Chất liệu 100% Cotton</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold text-blue-600 dark:text-blue-400">250.000đ</span>
+                        <del class="text-sm text-gray-400">300.000đ</del>
+                    </div>
+                    <button class="mt-4 w-full bg-gray-900 dark:bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors focus:ring-2 focus:ring-gray-400">
+                        Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop" alt="Shoes" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate">Giày Sneaker Đỏ</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Thể thao năng động</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold text-blue-600 dark:text-blue-400">850.000đ</span>
+                    </div>
+                    <button class="mt-4 w-full bg-gray-900 dark:bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors focus:ring-2 focus:ring-gray-400">
+                        Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop" alt="Watch" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <span class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">HOT</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate">Đồng Hồ SmartWatch</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Chống nước 5ATM</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold text-blue-600 dark:text-blue-400">1.200.000đ</span>
+                    </div>
+                    <button class="mt-4 w-full bg-gray-900 dark:bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors focus:ring-2 focus:ring-gray-400">
+                        Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden group">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop" alt="Bag" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate">Balo Thời Trang</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Vừa laptop 15.6 inch</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold text-blue-600 dark:text-blue-400">450.000đ</span>
+                    </div>
+                    <button class="mt-4 w-full bg-gray-900 dark:bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors focus:ring-2 focus:ring-gray-400">
+                        Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-4"><i class="fa-solid fa-bolt text-blue-500"></i> TailShop</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Cửa hàng thời trang ứng dụng Tailwind CSS để mang lại trải nghiệm giao diện nhanh chóng và đẹp mắt nhất.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">Liên kết</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Về chúng tôi</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">Liên hệ</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fa-solid fa-location-dot w-5 text-center"></i> 123 Đường Tailwind, Hà Nội</li>
+                        <li><i class="fa-solid fa-phone w-5 text-center"></i> 0123 456 789</li>
+                        <li><i class="fa-solid fa-envelope w-5 text-center"></i> cskh@tailshop.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+                &copy; 2026 TailShop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
