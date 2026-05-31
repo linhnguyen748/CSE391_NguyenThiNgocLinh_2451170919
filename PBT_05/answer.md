@@ -68,8 +68,8 @@ Desktop-First: Viết CSS mặc định cho Desktop trước. Dùng @media (max-
 
 1. Giải thích và Ví dụ 4 tính năng chính của SCSS
 
-1. Variables (Biến - $)
-- Giải thích: Cho phép lưu trữ các giá trị thường dùng lặp đi lặp lại (như màu sắc, font chữ, khoảng cách, kích thước...) vào một biến bắt đầu bằng dấu $. Khi cần thay đổi, chỉ cần sửa giá trị biến ở một nơi, toàn bộ CSS sẽ tự động cập nhật.
+1. Variables (Biến)
+- Giải thích: Cho phép lưu trữ các giá trị thường dùng lặp đi lặp lại (như màu sắc, font chữ, khoảng cách, kích thước...) vào một biến bắt đầu bằng dấu $. Khi cần thay đổi, chỉ cần sửa giá trị biến ở một nơi, toàn bộ CSS sẽ tự động cập nhật
 
 ```scss
 $primary-color: #2563eb;
