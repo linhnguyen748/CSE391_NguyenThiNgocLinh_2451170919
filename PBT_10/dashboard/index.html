@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-API Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Hệ thống Dashboard</h1>
+            <div class="controls">
+                <span id="loadTime">Data loaded in 0ms</span>
+                <button id="refreshBtn">Refresh All</button>
+            </div>
+        </header>
+
+        <div id="globalLoading" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Đang đồng bộ dữ liệu...</p>
+        </div>
+
+        <div class="widgets-grid">
+            <div class="widget">
+                <div class="widget-header">👥 Người dùng mới</div>
+                <div class="widget-body" id="widget-0"></div>
+            </div>
+
+            <div class="widget">
+                <div class="widget-header">🐶 Thú cưng</div>
+                <div class="widget-body" id="widget-1"></div>
+            </div>
+
+            <div class="widget">
+                <div class="widget-header">📝 Bài viết (Posts)</div>
+                <div class="widget-body" id="widget-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
