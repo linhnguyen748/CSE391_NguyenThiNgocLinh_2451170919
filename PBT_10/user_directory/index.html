@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory (CRUD)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Directory</h1>
+            <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên hoặc email...">
+        </header>
+
+        <div class="main-content">
+            <aside class="form-panel">
+                <h2 id="formTitle">Thêm User Mới</h2>
+                <form id="userForm">
+                    <input type="hidden" id="userId">
+                    
+                    <div class="form-group">
+                        <label for="name">Họ và tên *</label>
+                        <input type="text" id="name" required placeholder="Nguyễn Văn A">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required placeholder="email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="text" id="phone" placeholder="0123456789">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Thêm</button>
+                        <button type="button" id="cancelBtn" class="btn btn-secondary hidden">Hủy</button>
+                    </div>
+                </form>
+            </aside>
+
+            <main class="users-panel">
+                <div id="usersContainer" class="users-grid">
+                    </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
